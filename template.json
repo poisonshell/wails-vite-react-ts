@@ -3,7 +3,7 @@
   "description": "A modern Wails template with the latest versions of Vite, React 18, TypeScript 5, TanStack Router, and TailwindCSS 4",
   "author": "poisonshell",
   "version": "1.1.0",
-  "helpUrl": "https://github.com/wailsapp/wails",
+  "helpUrl": "https://github.com/poisonshell/wails-vite-react-ts",
   "keywords": ["wails", "vite", "react", "typescript", "tanstack-router", "router", "tailwindcss", "template"],
   "minWailsVersion": "2.8.0"
 }
