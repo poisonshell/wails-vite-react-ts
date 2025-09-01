@@ -4,12 +4,12 @@ A Wails desktop application template with React, TypeScript, TailwindCSS, and Ta
 
 ## Features
 
-- Wails 2.9+ with Go backend
-- React 18 with TypeScript 5
-- Vite 6 for fast development
-- TailwindCSS 3 for styling
-- TanStack Router for file-based routing
-- Custom UI components and hooks
+- Wails 2.10.2 with Go backend
+- React 19 with TypeScript 5.7
+- Vite 7
+- TailwindCSS 4 
+- TanStack Router 1.131 
+
 
 ## Quick Start
 
