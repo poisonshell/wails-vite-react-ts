@@ -48,7 +48,7 @@ wails build
 Optional: inject version at build time
 
 ```bash
-wails build -ldflags "-X 'main.version=1.1.0'"
+wails build -ldflags "-X 'main.version=1.2.0'"
 ```
 ```
 

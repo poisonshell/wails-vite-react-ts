@@ -9,6 +9,12 @@
   "author": {
     "name": "{{.AuthorName}}"
   },
+  "info": {
+    "productName": "{{.ProjectName}}",
+    "productVersion": "1.0.0",
+    "copyright": "MIT",
+    "comments": "Built using Wails (https://wails.io)"
+  },
   "nsisType": "multiple",
   "obfuscated": false,
   "garbleargs": ""

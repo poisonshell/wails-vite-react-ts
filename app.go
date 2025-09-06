@@ -37,7 +37,7 @@ func (a *App) GetAppVersion() string {
 		return version
 	}
 	// Fallback when ldflags not provided
-	return "1.1.0"
+	return "1.2.0"
 }
 
 func (a *App) GetPlatform() string {
