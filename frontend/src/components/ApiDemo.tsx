@@ -108,11 +108,11 @@ const ApiDemo = () => {
       </div>
 
     
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         {apiMethods.map((method, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 cursor-pointer"
+    className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 cursor-pointer flex flex-col h-full"
           >
             <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${method.color} flex items-center justify-center text-white text-xl mb-4`}>
               {method.icon}
@@ -126,7 +126,7 @@ const ApiDemo = () => {
             <button
               onClick={method.action}
               disabled={loading}
-              className={`w-full bg-gradient-to-r ${method.color} hover:opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer`}
+      className={`mt-auto w-full bg-gradient-to-r ${method.color} hover:opacity-90 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none cursor-pointer`}
             >
               {loading ? 'Calling...' : 'Call API'}
             </button>

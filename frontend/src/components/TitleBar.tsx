@@ -3,7 +3,6 @@ import {
   WindowToggleMaximise,
   Quit,
   WindowIsMaximised,
-  WindowIsMinimised,
 } from "../../wailsjs/runtime/runtime";
 import { useState, useEffect } from "react";
 
@@ -14,21 +13,14 @@ const TitleBar = () => {
   useEffect(() => {
     const checkWindowState = async () => {
       try {
-        const [maximized, minimized] = await Promise.all([
-          WindowIsMaximised().catch(() => false),
-          WindowIsMinimised().catch(() => false),
-        ]);
-
-        setIsMaximized(maximized);
-        setIsMinimized(minimized);
+  const maximized = await WindowIsMaximised().catch(() => false);
+  setIsMaximized(maximized);
       } catch (error) {
         console.log("Window state check not available:", error);
       }
     };
 
-    checkWindowState();
-
-    const interval = setInterval(checkWindowState, 1000);
+  checkWindowState();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.altKey && event.key === "F4") {
@@ -40,7 +32,6 @@ const TitleBar = () => {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      clearInterval(interval);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
@@ -81,12 +72,10 @@ const TitleBar = () => {
 
   return (
     <div
-      className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 h-10 select-none"
-      style={{ "--wails-draggable": "drag" } as React.CSSProperties}
+      className="wails-draggable flex items-center justify-between bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 h-10 select-none"
     >
       <div
-        className="flex items-center px-4 h-full"
-        style={{ "--wails-draggable": "no-drag" } as React.CSSProperties}
+        className="wails-no-drag flex items-center px-4 h-full"
         onDoubleClick={handleDoubleClick}
       >
         <div className="flex items-center space-x-2">
@@ -94,27 +83,20 @@ const TitleBar = () => {
             <span className="text-white text-xs font-bold">W</span>
           </div>
           <div className="text-sm font-medium text-gray-700 dark:text-gray-300 pointer-events-none">
-            Wails App
+            wails-vite-react-ts
           </div>
         </div>
       </div>
 
-      <div
-        className="flex-1 h-full cursor-move"
-        onDoubleClick={handleDoubleClick}
-      />
+  <div className="flex-1 h-full cursor-move" onDoubleClick={handleDoubleClick} />
 
-      <div
-        className="flex"
-        style={{ "--wails-draggable": "no-drag" } as React.CSSProperties}
-      >
+  <div className="wails-no-drag flex">
         <button
           onClick={handleMinimize}
           className={`w-12 h-10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-150 ${
             isMinimized ? "bg-gray-200 dark:bg-gray-700" : ""
           }`}
           title="Minimize"
-          style={{ "--wails-draggable": "no-drag" } as React.CSSProperties}
           disabled={isMinimized}
           aria-label="Minimize window"
         >
@@ -135,7 +117,6 @@ const TitleBar = () => {
           onClick={handleMaximize}
           className="w-12 h-10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-150"
           title={isMaximized ? "Restore Down" : "Maximize"}
-          style={{ "--wails-draggable": "no-drag" } as React.CSSProperties}
           aria-label={isMaximized ? "Restore window" : "Maximize window"}
         >
           {isMaximized ? (
@@ -170,7 +151,6 @@ const TitleBar = () => {
           onClick={handleClose}
           className="w-12 h-10 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors duration-150 group"
           title="Close"
-          style={{ "--wails-draggable": "no-drag" } as React.CSSProperties}
           aria-label="Close window"
         >
           <svg

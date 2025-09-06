@@ -55,7 +55,7 @@ const About = () => {
 
   const techStack = [
     { name: 'Backend', tech: 'Go + Wails v2', icon: '🚀' },
-    { name: 'Frontend', tech: 'React 18 + TypeScript', icon: '⚛️' },
+    { name: 'Frontend', tech: 'React 19 + TypeScript 5', icon: '⚛️' },
     { name: 'Routing', tech: 'TanStack Router', icon: '🧭' },
     { name: 'Styling', tech: 'TailwindCSS 4', icon: '🎨' },
     { name: 'Build Tool', tech: 'Vite 7', icon: '⚡' },
@@ -140,7 +140,7 @@ const About = () => {
             <div>
               <span className="font-medium">Create a new project:</span>
               <code className="block mt-1 bg-gray-800 text-green-400 p-2 rounded text-sm">
-                wails init -n myapp -t https://github.com/yourusername/wails-vite-react-ts
+                wails init -n myapp -t https://github.com/poisonshell/wails-vite-react-ts
               </code>
             </div>
           </div>

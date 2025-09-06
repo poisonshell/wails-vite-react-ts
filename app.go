@@ -29,8 +29,15 @@ func (a *App) GetHelloWorld() string {
 	return "HELLO WORLD"
 }
 
+// version is set at build time via -ldflags; falls back to wails.json info.productVersion
+var version = ""
+
 func (a *App) GetAppVersion() string {
-	return "1.0.0"
+	if version != "" {
+		return version
+	}
+	// Fallback when ldflags not provided
+	return "1.1.0"
 }
 
 func (a *App) GetPlatform() string {

@@ -18,7 +18,7 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:         "Modern Desktop App",
+		Title:         "wails-vite-react-ts",
 		Width:         1200,
 		Height:        800,
 		MinWidth:      800,

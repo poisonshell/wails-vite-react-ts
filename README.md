@@ -15,7 +15,7 @@ A Wails desktop application template with React, TypeScript, TailwindCSS, and Ta
 
 ## Requirements
 
-- Go 1.21+
+- Go 1.24+
 - Node.js 18+
 - NPM
 - Wails CLI 2.8+
@@ -44,6 +44,12 @@ wails dev
 
 # Build
 wails build
+
+Optional: inject version at build time
+
+```bash
+wails build -ldflags "-X 'main.version=1.1.0'"
+```
 ```
 
 ## Project Structure
